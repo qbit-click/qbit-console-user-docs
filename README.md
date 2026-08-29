@@ -6,7 +6,7 @@ Qbit Console manages customer-owned third-party remote servers. It is not a clou
 
 ## Stack
 
-- Bun 1.3.14 as the canonical package manager/runtime
+- Bun 1.4.0 as the canonical package manager/runtime
 - VitePress + TypeScript
 - Self-hosted Vazirmatn variable font
 - Persian/RTL as the default locale and English/LTR under `/en/`
