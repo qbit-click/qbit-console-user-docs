@@ -10,6 +10,12 @@ test("Persian documentation is the default RTL experience", async ({ page }) => 
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await expect(page.locator(".navbar__search-input")).toBeVisible();
 
+  const searchDirection = await page.locator(".navbar__search-input").evaluate((node) => {
+    const style = getComputedStyle(node);
+    return { direction: style.direction, textAlign: style.textAlign };
+  });
+  expect(searchDirection).toEqual({ direction: "rtl", textAlign: "right" });
+
   const logoSpacing = await page.locator(".navbar__logo").evaluate((node) => {
     const style = getComputedStyle(node);
     return { left: style.marginLeft, right: style.marginRight };

@@ -8,6 +8,11 @@ const config: Config = {
   title: 'Qbit Console',
   tagline: 'مدیریت امن سرورهای ریموت شما',
   favicon: 'favicon.svg',
+
+  future: {
+    v4: true,
+  },
+
   url: 'https://qbit-click.github.io',
   baseUrl,
   organizationName: 'qbit-click',

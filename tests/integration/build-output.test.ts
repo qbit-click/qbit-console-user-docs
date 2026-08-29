@@ -17,11 +17,11 @@ describe("Docusaurus production output", () => {
     const fa = read("index.html");
     const en = read("en/index.html");
 
-    expect(fa).toContain('lang="fa-IR"');
-    expect(fa).toContain('dir="rtl"');
+    expect(fa).toContain('lang=fa-IR');
+    expect(fa).toContain('dir=rtl');
     expect(fa).toContain("مستندات Qbit Console");
-    expect(en).toContain('lang="en-US"');
-    expect(en).toContain('dir="ltr"');
+    expect(en).toContain('lang=en-US');
+    expect(en).toContain('dir=ltr');
     expect(en).toContain("Qbit Console Docs");
   });
 
