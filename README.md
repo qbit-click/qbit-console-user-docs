@@ -1,13 +1,14 @@
 # Qbit Console User Docs
 
-Bilingual end-user documentation for Qbit Console, published as a static VitePress site.
+Bilingual end-user documentation for Qbit Console, published as a static Docusaurus site with offline local search.
 
 Qbit Console manages customer-owned third-party remote servers. It is not a cloud/server provider, and this documentation must preserve that product boundary.
 
 ## Stack
 
 - Bun 1.4.0 as the canonical package manager/runtime
-- VitePress + TypeScript
+- Docusaurus 3 + React + TypeScript
+- Offline multilingual search via `@easyops-cn/docusaurus-search-local`
 - Self-hosted Vazirmatn variable font
 - Persian/RTL as the default locale and English/LTR under `/en/`
 - Vitest unit/integration coverage and Playwright browser E2E

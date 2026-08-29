@@ -1,6 +1,7 @@
 node_modules/
-docs/.vitepress/cache/
-docs/.vitepress/dist/
+.docusaurus/
+build/
+.bun-tmp/
 playwright-report/
 test-results/
 coverage/

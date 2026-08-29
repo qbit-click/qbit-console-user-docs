@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Qbit Console",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Qbit Console",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.راهنما": {
+    "message": "Guide",
+    "description": "Navbar item with label راهنما"
+  },
+  "item.label.سرورهای ریموت": {
+    "message": "Remote servers",
+    "description": "Navbar item with label سرورهای ریموت"
+  },
+  "item.label.مانیتورینگ": {
+    "message": "Monitoring",
+    "description": "Navbar item with label مانیتورینگ"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

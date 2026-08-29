@@ -34,4 +34,4 @@ The current metadata contract allows tag and label changes. The display name is 
 
 Disabling a server changes the Qbit inventory lifecycle only. It is not a shutdown, reboot, or provider-side deletion of the third-party machine.
 
-Related: [Resource monitoring](/en/guide/monitoring) and [Alerts and notifications](/en/guide/alerts-notifications).
+Related: [Resource monitoring](/guide/monitoring) and [Alerts and notifications](/guide/alerts-notifications).

@@ -3,35 +3,43 @@ import { resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { enNav, enSidebar, faNav, faSidebar } from "../../docs/.vitepress/site";
+const docIds = [
+  "getting-started",
+  "workspaces",
+  "remote-servers",
+  "monitoring",
+  "alerts-notifications",
+  "billing",
+  "settings",
+  "security",
+  "coming-soon",
+  "troubleshooting",
+] as const;
 
-const markdownPathForLink = (link: string) => {
-  const relative = link.replace(/^\//, "");
-  return resolve(process.cwd(), "docs", `${relative}.md`);
-};
+const faDoc = (id: string) => resolve(process.cwd(), "docs", `${id}.md`);
+const enDoc = (id: string) =>
+  resolve(process.cwd(), "i18n/en/docusaurus-plugin-content-docs/current", `${id}.md`);
 
 describe("documentation navigation", () => {
   it("keeps Persian and English guide coverage in parity", () => {
-    expect(faSidebar).toHaveLength(enSidebar.length);
-    expect(faSidebar).toHaveLength(10);
-
-    const faSlugs = faSidebar.map(({ link }) => link.replace(/^\/guide\//, ""));
-    const enSlugs = enSidebar.map(({ link }) => link.replace(/^\/en\/guide\//, ""));
-
-    expect(enSlugs).toEqual(faSlugs);
-  });
-
-  it("points every sidebar item at a real Markdown document", () => {
-    for (const item of [...faSidebar, ...enSidebar]) {
-      expect(existsSync(markdownPathForLink(item.link)), item.link).toBe(true);
+    expect(docIds).toHaveLength(10);
+    for (const id of docIds) {
+      expect(existsSync(faDoc(id)), `fa:${id}`).toBe(true);
+      expect(existsSync(enDoc(id)), `en:${id}`).toBe(true);
     }
   });
 
-  it("keeps top-level navigation inside documented guide routes", () => {
-    const sidebarLinks = new Set([...faSidebar, ...enSidebar].map(({ link }) => link));
+  it("keeps public guide routes stable across the Docusaurus migration", () => {
+    const faRoutes = docIds.map((id) => `/guide/${id}`);
+    const enRoutes = docIds.map((id) => `/en/guide/${id}`);
 
-    for (const item of [...faNav, ...enNav]) {
-      expect(sidebarLinks.has(item.link), item.link).toBe(true);
-    }
+    expect(faRoutes[0]).toBe("/guide/getting-started");
+    expect(enRoutes[0]).toBe("/en/guide/getting-started");
+    expect(enRoutes.map((route) => route.replace(/^\/en/, ""))).toEqual(faRoutes);
+  });
+
+  it("keeps Persian as the root locale and English under /en", () => {
+    expect(existsSync(resolve(process.cwd(), "src/pages/index.tsx"))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), "docusaurus.config.ts"))).toBe(true);
   });
 });

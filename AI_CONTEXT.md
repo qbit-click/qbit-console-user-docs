@@ -19,5 +19,5 @@ When behavior changes, reconcile documentation against the current `qbit-console
 - Brand seed: Qbit Console blue `#357da1`
 - Typography: Vazirmatn variable
 - Package manager: Bun 1.4.0
-- Static generator: VitePress
+- Static generator: Docusaurus 3 with React and offline local search
 - Deployment: GitHub Pages via GitHub Actions

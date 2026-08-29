@@ -40,5 +40,5 @@ A Qbit control-plane record for a third-party machine. Disabling the record does
 A resource observation already accepted by Qbit. Opening a detail/history page does not trigger a new poll or command on the server.
 
 ::: tip
-For the shortest path, continue with [Accounts and workspaces](/en/guide/workspaces) and then [Remote servers](/en/guide/remote-servers).
+For the shortest path, continue with [Accounts and workspaces](/guide/workspaces) and then [Remote servers](/guide/remote-servers).
 :::

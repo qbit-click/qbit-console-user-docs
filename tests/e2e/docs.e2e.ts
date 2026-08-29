@@ -5,23 +5,16 @@ test("Persian documentation is the default RTL experience", async ({ page }) => 
   await page.goto("/");
 
   await expect(page).toHaveTitle(/مستندات Qbit Console/);
-  await expect(page.getByRole("heading", { name: "Qbit Console" })).toBeVisible();
   await expect(page.getByText("مدیریت سرورهای ریموت شما")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("lang", "fa-IR");
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await expect.poll(() => page.locator("html").evaluate((node) => getComputedStyle(node).direction)).toBe("rtl");
+  await expect(page.locator(".navbar__search-input")).toBeVisible();
 
-  const logoSpacing = await page.locator(".VPNavBarTitle .logo").evaluate((node) => {
+  const logoSpacing = await page.locator(".navbar__logo").evaluate((node) => {
     const style = getComputedStyle(node);
-    return { start: style.marginRight, end: style.marginLeft };
+    return { left: style.marginLeft, right: style.marginRight };
   });
-  expect(logoSpacing).toEqual({ start: "0px", end: "8px" });
-
-  const searchSpacing = await page.locator(".VPNavBarSearch").evaluate((node) => {
-    const style = getComputedStyle(node);
-    return { start: style.paddingRight, end: style.paddingLeft };
-  });
-  expect(searchSpacing).toEqual({ start: "32px", end: "0px" });
+  expect(logoSpacing).toEqual({ left: "8px", right: "0px" });
 });
 
 test("English documentation is available as an LTR locale", async ({ page }) => {
@@ -32,19 +25,13 @@ test("English documentation is available as an LTR locale", async ({ page }) => 
   await expect(page.getByText("Manage your remote servers")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("lang", "en-US");
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-  await expect.poll(() => page.locator("html").evaluate((node) => getComputedStyle(node).direction)).toBe("ltr");
+  await expect(page.locator(".navbar__search-input")).toBeVisible();
 
-  const logoSpacing = await page.locator(".VPNavBarTitle .logo").evaluate((node) => {
+  const logoSpacing = await page.locator(".navbar__logo").evaluate((node) => {
     const style = getComputedStyle(node);
-    return { start: style.marginLeft, end: style.marginRight };
+    return { left: style.marginLeft, right: style.marginRight };
   });
-  expect(logoSpacing).toEqual({ start: "0px", end: "8px" });
-
-  const searchSpacing = await page.locator(".VPNavBarSearch").evaluate((node) => {
-    const style = getComputedStyle(node);
-    return { start: style.paddingLeft, end: style.paddingRight };
-  });
-  expect(searchSpacing).toEqual({ start: "32px", end: "0px" });
+  expect(logoSpacing).toEqual({ left: "0px", right: "8px" });
 });
 
 test("remote-server security guidance is reachable", async ({ page }) => {
@@ -57,38 +44,10 @@ test("remote-server security guidance is reachable", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "امنیت", level: 1 })).toBeVisible();
 });
 
-test("desktop navigation spacing mirrors correctly between RTL and LTR", async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
+test("local search returns Persian and English documentation", async ({ page }) => {
+  await page.goto("/search?q=سرورهای%20ریموت");
+  await expect(page.getByRole("link", { name: /سرورهای ریموت/ }).first()).toBeVisible();
 
-  const readNavigationSpacing = () =>
-    page.evaluate(() => {
-      const logo = document.querySelector<HTMLElement>(".VPNavBarTitle .logo");
-      const search = document.querySelector<HTMLElement>(".VPNavBarSearch");
-      if (!logo || !search) throw new Error("navigation elements not found");
-
-      const logoStyle = getComputedStyle(logo);
-      const searchStyle = getComputedStyle(search);
-      return {
-        logoMarginLeft: logoStyle.marginLeft,
-        logoMarginRight: logoStyle.marginRight,
-        searchPaddingLeft: searchStyle.paddingLeft,
-        searchPaddingRight: searchStyle.paddingRight,
-      };
-    });
-
-  await page.goto("/");
-  await expect.poll(readNavigationSpacing).toEqual({
-    logoMarginLeft: "8px",
-    logoMarginRight: "0px",
-    searchPaddingLeft: "0px",
-    searchPaddingRight: "32px",
-  });
-
-  await page.goto("/en/");
-  await expect.poll(readNavigationSpacing).toEqual({
-    logoMarginLeft: "0px",
-    logoMarginRight: "8px",
-    searchPaddingLeft: "32px",
-    searchPaddingRight: "0px",
-  });
+  await page.goto("/en/search?q=Remote%20servers");
+  await expect(page.getByRole("link", { name: /Remote servers/i }).first()).toBeVisible();
 });

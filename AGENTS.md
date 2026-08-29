@@ -18,7 +18,7 @@
 ## Engineering rules
 
 - Bun is the canonical package manager/runtime.
-- Use VitePress + TypeScript.
+- Use Docusaurus 3 + React + TypeScript with offline local search.
 - Every code change must preserve unit, integration, and E2E coverage.
 - Run `bun run check` before merging.
 - GitHub Pages deploys only through the Actions workflow; do not commit built output.
