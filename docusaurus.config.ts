@@ -57,6 +57,9 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    metadata: [
+      {name: 'description', content: 'Qbit Console documentation for workspaces, remote servers, monitoring, alerts, billing, settings, and security.'},
+    ],
     navbar: {
       title: 'Qbit Console',
       logo: {alt: 'Qbit Console', src: 'favicon.svg'},
@@ -69,7 +72,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'light',
+      style: 'dark',
       links: [
         {
           title: 'Qbit Console',

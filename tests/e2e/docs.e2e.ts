@@ -9,6 +9,7 @@ test("Persian documentation is the default RTL experience", async ({ page }) => 
   await expect(page.locator("html")).toHaveAttribute("lang", "fa-IR");
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await expect(page.locator(".navbar__search-input")).toBeVisible();
+  await expect(page.getByRole("complementary", { name: "ثبت و مدیریت سرور ریموت" })).toBeVisible();
 
   const searchDirection = await page.locator(".navbar__search-input").evaluate((node) => {
     const style = getComputedStyle(node);

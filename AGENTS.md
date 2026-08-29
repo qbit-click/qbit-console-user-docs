@@ -17,7 +17,7 @@
 
 ## Engineering rules
 
-- `qbit-ai-toolkit/website` is the canonical technical reference for the documentation platform. Keep Docusaurus, React, Bun, search, typography, RTL/LTR behavior, testing, and deployment conventions aligned with it unless a product-specific difference is documented.
+- `qbit-ai-toolkit/website` is the canonical Qbit documentation template. Clone its structure, shared CSS, homepage layout, Docusaurus/React/Bun/search stack, RTL/LTR behavior, tests, and deployment conventions; override only product content, product routes/assets, locale-default routing, base paths, and repository-specific links. Pin the consumed template revision in `template.source.json`.
 - Bun is the canonical package manager/runtime.
 - Use Docusaurus 3 + React + TypeScript with offline local search.
 - Every code change must preserve unit, integration, and E2E coverage.

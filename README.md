@@ -14,11 +14,18 @@ Qbit Console manages customer-owned third-party remote servers. It is not a clou
 - Vitest unit/integration coverage and Playwright browser E2E
 - GitHub Actions deployment to GitHub Pages
 
+## Template source
+
+This site is cloned from the canonical Qbit documentation template at `qbit-ai-toolkit/website`. The exact consumed template revision and shared presentation hashes are recorded in `template.source.json`.
+
+Product-specific overrides are limited to Console content/routes/assets, Persian-as-default locale routing, the GitHub Pages base path, and repository links.
+
 ## Commands
 
 ```sh
 bun install --frozen-lockfile
-bun run dev
+bun run start
+bun run start:en
 bun run typecheck
 bun run test:unit
 bun run test:integration
