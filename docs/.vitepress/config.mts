@@ -19,12 +19,14 @@ export default defineConfig({
     root: {
       label: "فارسی",
       lang: "fa-IR",
+      dir: "rtl",
       title: "مستندات Qbit Console",
       description: "راهنمای کاربری مدیریت سرورهای ریموت در Qbit Console",
     },
     en: {
       label: "English",
       lang: "en-US",
+      dir: "ltr",
       link: "/en/",
       title: "Qbit Console Docs",
       description: "User documentation for managing third-party remote servers with Qbit Console",
