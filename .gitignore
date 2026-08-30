@@ -6,3 +6,8 @@ playwright-report/
 test-results/
 coverage/
 .DS_Store
+
+# qbit-toolkit:ai-context:start
+.qbit-toolkit/ai-context/backups/
+.qbit-toolkit/ai-context/transactions/
+# qbit-toolkit:ai-context:end
