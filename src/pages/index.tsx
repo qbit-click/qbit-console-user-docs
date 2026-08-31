@@ -206,7 +206,7 @@ export default function Home(): ReactNode {
                   </Link>
                   <Link
                     className="button button--secondary button--lg"
-                    href="https://github.com/qbit-click/qbit-console-user-docs">
+                    href="https://github.com/qbit-hub/qbit-console-user-docs">
                     {text.githubCta}
                   </Link>
                 </div>

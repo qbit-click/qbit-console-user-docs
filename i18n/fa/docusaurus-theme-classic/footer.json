@@ -21,11 +21,11 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/qbit-click"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/qbit-hub"
   },
   "link.item.label.Qbit CLI": {
     "message": "Qbit CLI",
-    "description": "The label of footer link with label=Qbit CLI linking to https://qbit-click.github.io/qbit-cli/"
+    "description": "The label of footer link with label=Qbit CLI linking to https://qbit-hub.github.io/qbit-cli/"
   },
   "copyright": {
     "message": "Copyright © 2026 Qbit.",

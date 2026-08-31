@@ -13,9 +13,9 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://qbit-click.github.io',
+  url: 'https://qbit-hub.github.io',
   baseUrl,
-  organizationName: 'qbit-click',
+  organizationName: 'qbit-hub',
   projectName: 'qbit-console-user-docs',
   trailingSlash: false,
   onBrokenLinks: 'throw',
@@ -34,7 +34,7 @@ const config: Config = {
         docs: {
           routeBasePath: 'guide',
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/qbit-click/qbit-console-user-docs/edit/main/docs/',
+          editUrl: 'https://github.com/qbit-hub/qbit-console-user-docs/edit/main/docs/',
         },
         blog: false,
         theme: {customCss: './src/css/custom.css'},
@@ -68,7 +68,7 @@ const config: Config = {
         {to: '/guide/remote-servers', label: 'سرورهای ریموت', position: 'left'},
         {to: '/guide/monitoring', label: 'مانیتورینگ', position: 'left'},
         {type: 'localeDropdown', position: 'right'},
-        {href: 'https://github.com/qbit-click/qbit-console-user-docs', label: 'GitHub', position: 'right'},
+        {href: 'https://github.com/qbit-hub/qbit-console-user-docs', label: 'GitHub', position: 'right'},
       ],
     },
     footer: {
@@ -85,8 +85,8 @@ const config: Config = {
         {
           title: 'Qbit',
           items: [
-            {label: 'GitHub', href: 'https://github.com/qbit-click'},
-            {label: 'Qbit CLI', href: 'https://qbit-click.github.io/qbit-cli/'},
+            {label: 'GitHub', href: 'https://github.com/qbit-hub'},
+            {label: 'Qbit CLI', href: 'https://qbit-hub.github.io/qbit-cli/'},
           ],
         },
       ],
