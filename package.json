@@ -10,6 +10,7 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
+    "configure:pages": "bun scripts/configure-pages-build.ts",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run tests/unit",
     "test:integration": "bun run build && vitest run tests/integration",

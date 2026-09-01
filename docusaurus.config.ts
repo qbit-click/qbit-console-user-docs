@@ -2,7 +2,9 @@ import type {Config} from '@docusaurus/types';
 import type {Options, ThemeConfig} from '@docusaurus/preset-classic';
 import {themes as prismThemes} from 'prism-react-renderer';
 
-const baseUrl = process.env.DOCS_BASE_PATH || '/';
+import {resolveDocsSiteConfig} from './src/config/site-deployment';
+
+const {url, baseUrl} = resolveDocsSiteConfig();
 
 const config: Config = {
   title: 'Qbit Console',
@@ -13,7 +15,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://qbit-hub.github.io',
+  url,
   baseUrl,
   organizationName: 'qbit-hub',
   projectName: 'qbit-console-user-docs',
